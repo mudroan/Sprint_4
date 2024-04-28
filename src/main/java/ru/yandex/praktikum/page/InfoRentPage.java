@@ -28,9 +28,8 @@ public class InfoRentPage extends BasePage {
     // Локатор кнопки "Да" в окне подтверждения заказа
     private final By yesButtonLocator = (By.xpath ("//button[text()='Да']"));
 
-    // Локатор текста "Заказ оформлен"
-    private final By successfulTextLocator = ((By.xpath ("//div[text()='Заказ оформлен']")));
-
+    // Локатор поля с текстом "Заказ оформлен"
+    private final By successfulTextLocator = (By.className("Order_ModalHeader__3FDaJ"));
 
     public InfoRentPage(WebDriver webDriver) {
         super (webDriver);
@@ -80,6 +79,6 @@ public class InfoRentPage extends BasePage {
 
  // Поиск окна с текстом "Заказ оформлен"
     public void searchSuccessfulText() {
-        webDriver.findElement (successfulTextLocator);
+        webDriver.findElement (successfulTextLocator).getText ();
     }
 }

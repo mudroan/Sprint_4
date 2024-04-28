@@ -12,11 +12,14 @@ import ru.yandex.praktikum.page.MainPage;
 import static org.junit.Assert.assertTrue;
 
 @RunWith (Parameterized.class)
+
 public class FaqTest {
     private WebDriver webDriver;
+    private static final String BROWSER = "FIREFOX";
+    private static final String url = "https://qa-scooter.praktikum-services.ru/";
     private int index;
     private String answer;
-    public FaqTest(int index, String answer) {
+    public FaqTest (int index, String answer) {
         this.index = index;
         this.answer = answer;
     }
@@ -37,8 +40,8 @@ public class FaqTest {
 
     @Before
     public void setup () {
-        webDriver = WebDriverFactory.getWebDriver (System.getProperty ("browser", "chrome"));
-        webDriver.get ("https://qa-scooter.praktikum-services.ru/");
+        webDriver = WebDriverFactory.getWebDriver (BROWSER);
+        webDriver.get (url);
     }
 
     @Test
