@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 
 public class FaqTest {
     private WebDriver webDriver;
-    private static final String BROWSER = "FIREFOX";
+    private static final String BROWSER = "CHROME";
     private static final String url = "https://qa-scooter.praktikum-services.ru/";
     private int index;
     private String answer;

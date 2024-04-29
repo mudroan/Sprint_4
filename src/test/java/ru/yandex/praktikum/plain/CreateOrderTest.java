@@ -8,10 +8,13 @@ import ru.yandex.praktikum.WebDriverFactory;
 import ru.yandex.praktikum.page.InfoRentPage;
 import ru.yandex.praktikum.page.MainPage;
 import ru.yandex.praktikum.page.OrderInfoPage;
+import ru.yandex.praktikum.page.SuccessfulRentPage;
+
+import static org.junit.Assert.assertTrue;
 
 public class CreateOrderTest {
     private WebDriver webDriver;
-    private static final String BROWSER = "FIREFOX";
+    private static final String BROWSER = "CHROME";
     private static final String url = "https://qa-scooter.praktikum-services.ru/";
 
     @Before
@@ -44,8 +47,10 @@ public class CreateOrderTest {
         infoRentPage.clickOrderButton ();
         infoRentPage.clickYesButton ();
 
-        infoRentPage.searchSuccessfulText ();
+        SuccessfulRentPage successfulRentPage = new SuccessfulRentPage (webDriver);
+        assertTrue(successfulRentPage.successfulIsDisplayed());
     }
+
     @After
     public void tearDown() {
         webDriver.quit ();
